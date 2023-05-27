@@ -1,0 +1,13 @@
+.search-btn:hover{
+  background-color: #eee;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.user-name {
+  color: black;
+  text-decoration: none;
+}
