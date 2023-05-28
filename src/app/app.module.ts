@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/project/project.component';
-import { LatestProjectsComponent } from './components/latest-projects/latest-projects.component';
 import { FeaturedProjectsComponent } from './components/featured-projects/featured-projects.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './components/categories/categories.component';
@@ -17,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { LandingComponent } from './components/landing/landing.component';
     NavbarComponent,
     HomeComponent,
     ProjectComponent,
-    LatestProjectsComponent,
     FeaturedProjectsComponent,
     CategoryComponent,
     CategoriesComponent,
@@ -33,7 +32,8 @@ import { LandingComponent } from './components/landing/landing.component';
     ProjectCardComponent,
     SearchComponent,
     ProjectItemComponent,
-    LandingComponent
+    LandingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

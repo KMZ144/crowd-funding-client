@@ -12,7 +12,6 @@ export class ProjectItemComponent implements OnInit{
   ngOnInit(): void {
  for( let i=0;i<this.project.images.length;i++){
   this.project.images[i].url=environment.API_URL.concat(this.project.images[i].url)
-  console.log(this.project);
  }
   }
 

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  private baseUrl:string="http://localhost:8000/api"
+  private baseUrl:string=`${environment.API_URL}/api`
   constructor(private http:HttpClient) {}
   getAllProjects(){
     return this.http.get(`${this.baseUrl}/home`)
