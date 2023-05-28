@@ -14,6 +14,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { EditProjectComponent } from './components/edit-project/edit-project.component';
+import { ProjectSliderComponent } from './components/project-slider/project-slider.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
      canActivate:[],
     children: [
       { path: '', component: HomeComponent },
+      {path :'search',component:SearchComponent},
       { path: ':id', component:ProjectComponent },
+      { path: ':id/edit', component:EditProjectComponent },
     ],
   },
 ];
@@ -43,6 +47,8 @@ HomeComponent,
     NavbarComponent,
     SearchComponent,
     FooterComponent,
+    EditProjectComponent,
+    ProjectSliderComponent,
   ],
   imports: [
     CommonModule,

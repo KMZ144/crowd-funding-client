@@ -3,6 +3,6 @@
 }
 
 .category:hover {
-  outline: solid,red ,3px;
-  cursor: pointer;
+  border: 1px solid #198754;
+    cursor: pointer;
 }

@@ -12,8 +12,8 @@ export class ProjectService {
   getAllProjects(){
     return this.http.get(`${this.baseUrl}/home`)
   }
-  getProjectById(ProjectId:number){
-    return this.http.get(`${this.baseUrl}/${ProjectId}`)
+  getProjectById(ProjectId:Number){
+    return this.http.get(`${this.baseUrl}/projects/${ProjectId}`)
   }
   addProject(Project:any){
     return this.http.post(this.baseUrl,Project)
