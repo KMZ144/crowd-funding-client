@@ -4,3 +4,7 @@
 .donate-btn:hover {
   background-color: #ffc107;
 }
+.slider {
+  height: 600px;
+  object-fit: cover;
+}

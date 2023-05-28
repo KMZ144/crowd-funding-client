@@ -1,0 +1,8 @@
+.category {
+
+}
+
+.category:hover {
+  outline: solid,red ,3px;
+  cursor: pointer;
+}
