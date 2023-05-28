@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-latest-projects',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./latest-projects.component.css']
 })
 export class LatestProjectsComponent {
+  @Input() projects:any=[]
 
 }

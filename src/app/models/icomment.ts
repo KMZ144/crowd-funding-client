@@ -1,4 +1,4 @@
-export interface iComment {
+export interface IComment {
   content:String,
   // user:Iuser
 }

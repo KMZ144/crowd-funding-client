@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProjectService {
 
-  baseUrl:string="http://localhost:8000/api/home"
+  private baseUrl:string="http://localhost:8000/api"
   constructor(private http:HttpClient) {}
   getAllProjects(){
-    return this.http.get(this.baseUrl)
+    return this.http.get(`${this.baseUrl}/home`)
   }
   getProjectById(ProjectId:number){
     return this.http.get(`${this.baseUrl}/${ProjectId}`)

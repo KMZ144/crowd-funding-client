@@ -1,8 +1,12 @@
-<div class="highest">
+<div class="highest container">
+  <app-highest-projects [projects]="projects.slider"/>
 </div>
 <div class="latest">
-  <app-latest-projects/>
+  <app-latest-projects [projects]="projects.latest"/>
 </div>
 <div class="featured">
-  <app-featured-projects/>
+  <app-featured-projects [projects]="projects.featured"/>
+</div>
+<div class="categories">
+  <app-categories [categories]="projects.categories"/>
 </div>

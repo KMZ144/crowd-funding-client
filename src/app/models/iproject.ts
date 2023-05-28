@@ -1,4 +1,4 @@
-export interface iProject {
+export interface IProject {
   id:Number,
   title:String,
   details:String,

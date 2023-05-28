@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent {
+  @Input() categories:any=[]
 
 }

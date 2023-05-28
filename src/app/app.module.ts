@@ -11,6 +11,12 @@ import { FeaturedProjectsComponent } from './components/featured-projects/featur
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { HighestProjectsComponent } from './components/highest-projects/highest-projects.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { SearchComponent } from './components/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProjectItemComponent } from './components/project-item/project-item.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,17 @@ import { ProjectsComponent } from './components/projects/projects.component';
     FeaturedProjectsComponent,
     CategoryComponent,
     CategoriesComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    HighestProjectsComponent,
+    ProjectCardComponent,
+    SearchComponent,
+    ProjectItemComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
