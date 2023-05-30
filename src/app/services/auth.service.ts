@@ -12,18 +12,20 @@ export class AuthService {
   //   'Content-Type':'multipart/form-data'
   // })
   constructor(private http: HttpClient) { }
-  boundary = '----WebKitFormBoundary' + Math.random().toString(36).substr(2, 15);
+  // ; boundary = ${ this.boundary }
+  // boundary = '----WebKitFormBoundary' + Math.random().toString(36).substr(2, 15);
+  // ; boundary = ${ this.boundary }
   headers = new HttpHeaders({
-    'Content-Type': `multipart/form-data; boundary=${this.boundary}`,
+    // 'Content-Type': `multipart/form-data`,
+    // 'accept':'*/*'
 
   });
   login(credentials: any) {
     return this.http.post(`${this.baseUrl}/login`, credentials);
   }
   register(credentials: any) {
-    return this.http.post(`${this.baseUrl}/register`, credentials, {
-      headers: this.headers
-    });
+    console.log('credentials:', credentials)
+    return this.http.post(`${this.baseUrl}/register`,credentials,{headers:this.headers});
   }
   logout() {
     this.loggedUser = undefined;

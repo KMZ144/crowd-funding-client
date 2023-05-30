@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   errors: any;
-
+  myfile:any
   data: FormData = new FormData();
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -74,6 +74,8 @@ export class RegisterComponent {
   }
 
   readUrl(event:any){
+    console.log(event.target.files[0])
+    this.myfile =event.target.files[0]
     const file = event.target.files[0]
     const type = file.type
     const validExt = ['image/jpeg','image/jpg','image/png']
@@ -90,7 +92,8 @@ export class RegisterComponent {
   submit(e: Event) {
     e.preventDefault();
     if (this.form.status == 'VALID') {
-
+      console.log(this.getImage.value)
+      console.log(this.getUserName.value)
       this.data.append('username', this.getUserName.value);
       this.data.append('first_name', this.getFirstName.value);
       this.data.append('last_name', this.getLastName.value);
@@ -98,14 +101,16 @@ export class RegisterComponent {
       this.data.append('password', this.getPassword.value);
       this.data.append('password2', this.getPassword2.value);
       this.data.append('phone', this.getMobile.value);
-      this.data.append('picture', this.getImage.value);
+      this.data.append('picture', this.myfile);
 
-
+      console.log(this.data)
       this.auth.register(this.data).subscribe({
         next: (res: any) => {
+          console.log(this.data)
           console.log(res);
         },
         error: (err) => {
+          console.log(this.data)
           console.log(err);
           this.errors = err.error;
         },
