@@ -1,1 +1,65 @@
-<p>login works!</p>
+
+<div class="login-form container mt-5">
+  <form [formGroup]="form" (submit)="submit($event)">
+    <div class="mb-3">
+      <label for="UserName" class="form-label">User Name</label>
+      <input
+        type="UserName"
+        class="form-control"
+        id="UserName"
+        formControlName="UserName"
+      />
+      <ng-container *ngIf="this.getUserName.touched">
+        <div
+          *ngIf="this.getUserName.hasError('required')"
+          class="invalid-feedback d-block"
+        >
+          UserName is Required
+        </div>
+        <div
+          *ngIf="this.getUserName.hasError('UserName')"
+          class="invalid-feedback d-block"
+        >
+          UserName is not valid
+        </div>
+      </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+      <ng-container *ngIf="this.getPassword.touched">
+        <div
+          *ngIf="this.getPassword.hasError('required')"
+          class="invalid-feedback d-block"
+        >
+          Password is required
+        </div>
+        <div
+          *ngIf="this.getPassword.hasError('minlength')"
+          class="invalid-feedback d-block"
+        >
+          Password is at least 8 characters
+        </div>
+
+        <div
+          *ngIf="this.getPassword.hasError('pattern')"
+          class="invalid-feedback d-block"
+        >
+          Password must contain uppercase lowercase and special character
+        </div>
+        <div *ngIf="this.errors?.message" class="invalid-feedback d-block">
+          {{this.errors}}
+        </div>
+      </ng-container>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+

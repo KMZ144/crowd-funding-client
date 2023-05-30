@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -8,10 +9,13 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   loggedUser: any;
   private baseUrl: string = `${environment.API_URL}/auth`;
-  private headers = new HttpHeaders({
-    'Content-Type':'multipart/form-data'
-  })
-  constructor(private http: HttpClient) {}
+  boundary = '----WebKitFormBoundary' + Math.random().toString(36).substr(2, 15);
+  headers = new HttpHeaders({
+    'Content-Type': `multipart/form-data; boundary=${this.boundary}`,
+
+  });
+  constructor(private http: HttpClient,private router: Router
+    ) {}
 
   login(credentials:any) {
     return this.http.post(`${this.baseUrl}/login`, credentials);
@@ -23,8 +27,10 @@ export class AuthService {
   }
   logout() {
     this.loggedUser = undefined;
+    localStorage.removeItem('token')
+    this.router.navigate(['/login'])
   }
-  getToken() {
-    return;
+  get getToken() {
+    return localStorage.getItem('token');
   }
 }

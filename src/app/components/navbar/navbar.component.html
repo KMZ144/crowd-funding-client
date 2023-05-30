@@ -24,7 +24,10 @@
           <a class="nav-link"></a>
         </li>
         <li class="nav-item">
-          <button class="btn btn-outline-success ms-2 me-2" routerLink="/projects/0/edit">
+          <button
+            class="btn btn-outline-success ms-2 me-2"
+            routerLink="/projects/0/edit"
+          >
             Start A project
           </button>
         </li>
@@ -37,20 +40,16 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-        <span class="me-2 user-name">Kareem</span>
-          <img
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-            alt=""
-            class="profile-pic"
-          />
+          <span class="me-2 user-name">{{ this.loggedUser.username }}</span>
+          <img src="{{ this.getImageUrl }}" alt="" class="profile-pic" />
         </a>
 
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><a class="dropdown-item" href="#">Projects</a></li>
-          <li><a class="dropdown-item" href="#">Donations</a></li>
+          <li><a class="dropdown-item" routerLink="/user/details">Profile</a></li>
+          <li><a class="dropdown-item" routerLink="/user/projects" >Projects</a></li>
+          <li><a class="dropdown-item" routerLink="/user/donations">Donations</a></li>
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
         </ul>
-
       </div>
     </div>
   </div>

@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmailConfirmationComponent } from './components/email-confirmation/email-confirmation.component';
+import { UserModule } from './user.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EmailConfirmationComponent } from './components/email-confirmation/emai
     FormsModule,
     ReactiveFormsModule,
     ProjectModule,
+    UserModule,
     AppRoutingModule,
     HttpClientModule
   ],
