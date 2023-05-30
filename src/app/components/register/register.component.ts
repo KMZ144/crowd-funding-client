@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -89,6 +90,7 @@ export class RegisterComponent {
   submit(e: Event) {
     e.preventDefault();
     if (this.form.status == 'VALID') {
+
       this.data.append('username', this.getUserName.value);
       this.data.append('first_name', this.getFirstName.value);
       this.data.append('last_name', this.getLastName.value);
