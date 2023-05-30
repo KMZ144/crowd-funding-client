@@ -2,47 +2,40 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { imageValidator } from './imageValidation';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-
   errors: any;
-  imageValidation: { type: boolean; size: boolean } = {
-    type: true,
-    size: true,
-  };
+
   data: FormData = new FormData();
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', [Validators.required]),
-    firstName:new FormControl('',[Validators.required]) ,
-    lastName:new FormControl('',[Validators.required]) ,
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
     mobile: new FormControl('', [
       Validators.required,
       Validators.pattern('^(011|012|010)([0-9]+){8}$'),
     ]),
     address: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required,this.validateImageType,this.validateImageSize]),
+    image: new FormControl(null, [
+      Validators.required,
+      imageValidator(2000000,['jpg','jpeg','png'])
+    ]),
     password: new FormControl('', [
       Validators.required,
       // Validators.pattern(
       //   "^S*(?=S{8,})(?=S*[a-z])(?=S*[A-Z])(?=S*[d])(?=S*[W])S*$"
       // ),
     ]),
-    password2:new FormControl('',[
-      Validators.required,
-    ]),
+    password2: new FormControl('', [Validators.required]),
   });
-  validateImageType(){
 
-  }
-  validateImageSize(){
-
-  }
   constructor(private auth: AuthService, private router: Router) {}
 
   get getEmail() {
@@ -76,28 +69,14 @@ export class RegisterComponent {
   get getImage() {
     return this.form.controls['image'];
   }
-  get getPassword2(){
-    return this.form.controls['password2']
-  }
-  readUrl(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      const validExt: string[] = ['image/jpeg', 'image/png', 'image/jpg'];
-      if (!validExt.includes(event.target.files[0].type)) {
-        this.imageValidation.type = false;
-      } else if (event.target.files[0].size > 2000000) {
-        this.imageValidation.size = false;
-      }
-      this.data.append('picture', event.target.files[0]);
-    }
+  get getPassword2() {
+    return this.form.controls['password2'];
   }
 
   submit(e: Event) {
+    console.log(this.form);
     e.preventDefault();
-    if (
-      this.form.status == 'VALID' &&
-      this.imageValidation.size == true &&
-      this.imageValidation.type == true
-    ) {
+    if (this.form.status == 'VALID') {
       this.data.append('username', this.getUserName.value);
       this.data.append('first_name', this.getFirstName.value);
       this.data.append('last_name', this.getLastName.value);
@@ -105,11 +84,12 @@ export class RegisterComponent {
       this.data.append('password', this.getPassword.value);
       this.data.append('password2', this.getPassword2.value);
       this.data.append('phone', this.getMobile.value);
+      this.data.append('picture', this.getImage.value);
       console.log(this.data);
 
       this.auth.register(this.data).subscribe({
         next: (res: any) => {
-            console.log(res)
+          console.log(res);
         },
         error: (err) => {
           console.log(err);

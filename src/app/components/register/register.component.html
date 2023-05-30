@@ -1,4 +1,3 @@
-
 <div class="login-form container mt-3">
   <form [formGroup]="form" (submit)="submit($event)">
     <div class="mb-3">
@@ -15,14 +14,11 @@
             *ngIf="this.getUserName.hasError('required')"
             class="invalid-feedback d-block"
           >
-          User Name is Required
+            User Name is Required
           </div>
-          <div
-          *ngIf="this.errors?.name"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.name[0]}}
-        </div>
+          <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+            {{ this.errors?.name[0] }}
+          </div>
         </ng-container>
       </div>
 
@@ -39,14 +35,11 @@
             *ngIf="this.getFirstName.hasError('required')"
             class="invalid-feedback d-block"
           >
-          First Name is Required
+            First Name is Required
           </div>
-          <div
-          *ngIf="this.errors?.name"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.firstName[0]}}
-        </div>
+          <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+            {{ this.errors?.firstName[0] }}
+          </div>
         </ng-container>
       </div>
 
@@ -63,14 +56,11 @@
             *ngIf="this.getLastName.hasError('required')"
             class="invalid-feedback d-block"
           >
-          last Name is Required
+            last Name is Required
           </div>
-          <div
-          *ngIf="this.errors?.name"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.lastName[0]}}
-        </div>
+          <div *ngIf="this.errors?.name" class="invalid-feedback d-block">
+            {{ this.errors?.lastName[0] }}
+          </div>
         </ng-container>
       </div>
 
@@ -96,15 +86,11 @@
             Mobile is not valid
           </div>
 
-          <div
-          *ngIf="this.errors?.mobile"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.mobile[0]}}
-        </div>
+          <div *ngIf="this.errors?.mobile" class="invalid-feedback d-block">
+            {{ this.errors?.mobile[0] }}
+          </div>
         </ng-container>
       </div>
-
 
       <div class="email">
         <label for="email" class="form-label">Email address</label>
@@ -127,12 +113,9 @@
           >
             Email is not valid
           </div>
-          <div
-          *ngIf="this.errors?.email"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.email[0]}}
-        </div>
+          <div *ngIf="this.errors?.email" class="invalid-feedback d-block">
+            {{ this.errors?.email[0] }}
+          </div>
         </ng-container>
       </div>
 
@@ -165,14 +148,10 @@
             Password must contain uppercase lowercase and special character
           </div>
 
-          <div
-          *ngIf="this.errors?.password"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.password[0]}}
-        </div>
+          <div *ngIf="this.errors?.password" class="invalid-feedback d-block">
+            {{ this.errors?.password[0] }}
+          </div>
         </ng-container>
-
       </div>
 
       <div class="pass2">
@@ -183,7 +162,7 @@
           id="password2"
           formControlName="password2"
         />
-        <ng-container *ngIf="this.getPassword2.touched ">
+        <ng-container *ngIf="this.getPassword2.touched">
           <div
             *ngIf="this.getPassword2.hasError('required')"
             class="invalid-feedback d-block"
@@ -191,22 +170,16 @@
             Password is required
           </div>
           <div
-            *ngIf="this.getPassword2.value!=this.getPassword.value"
+            *ngIf="this.getPassword2.value != this.getPassword.value"
             class="invalid-feedback d-block"
           >
             passwords must match
           </div>
 
-
-
-          <div
-          *ngIf="this.errors?.password"
-          class="invalid-feedback d-block"
-        >
-        {{this.errors?.password2[0]}}
-        </div>
+          <div *ngIf="this.errors?.password" class="invalid-feedback d-block">
+            {{ this.errors?.password2[0] }}
+          </div>
         </ng-container>
-
       </div>
 
       <div class="file">
@@ -216,49 +189,39 @@
           type="file"
           id="formFile"
           formControlName="image"
-          (change)="readUrl($event)"
         />
         <ng-container>
           <div
-          *ngIf="this.getImage.hasError('required')&&this.getImage.touched"
-          class="invalid-feedback d-block"
-        >
-          image is required
-        </div>
+            *ngIf="this.getImage.hasError('required') && this.getImage.touched"
+            class="invalid-feedback d-block"
+          >
+            image is required
+          </div>
           <div
-            *ngIf="!this.imageValidation.size"
+            *ngIf="this.getImage.hasError('maxSize') && this.getImage.touched"
             class="invalid-feedback d-block"
           >
             image size mustn't exceed 2mb
           </div>
           <div
-          *ngIf="!this.imageValidation.type"
-          class="invalid-feedback d-block"
-        >
-          image type is not valid
-        </div>
+            *ngIf="
+              this.getImage.hasError('invalidExtension') &&
+              this.getImage.touched
+            "
+            class="invalid-feedback d-block"
+          >
+            image type is not valid
+          </div>
 
-        <div
-        *ngIf="this.errors?.image"
-        class="invalid-feedback d-block"
-      >
-      {{this.errors?.image[0]}}
-      </div>
-
-
+          <div *ngIf="this.errors?.image" class="invalid-feedback d-block">
+            {{ this.errors?.image[0] }}
+          </div>
         </ng-container>
       </div>
-
     </div>
-
-
-
-
-
 
     <div class="text-center">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
 </div>
-
