@@ -11,12 +11,14 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmailConfirmationComponent } from './components/email-confirmation/email-confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    EmailConfirmationComponent,
 
   ],
   imports: [
