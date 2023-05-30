@@ -14,6 +14,7 @@ export class ProjectsComponent implements OnInit {
       {
         next:(res)=>{
           this.projects=res
+          this.projectService.setData(res);
         }
       }
     )

@@ -8,10 +8,20 @@ import { environment } from 'src/environments/environment';
 export class ProjectService {
 
   private baseUrl:string=`${environment.API_URL}/api`
+  private projects: any;
   constructor(private http:HttpClient) {}
   getAllProjects(){
     return this.http.get(`${this.baseUrl}/home`)
   }
+
+  setData(data: any) {
+    this.projects = data;
+  }
+
+  getData(): any {
+    return this.projects;
+  }
+
   getProjectById(ProjectId:Number){
     return this.http.get(`${this.baseUrl}/projects/${ProjectId}`)
   }
