@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -9,21 +9,26 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   loggedUser: any;
   private baseUrl: string = `${environment.API_URL}/auth`;
-  boundary = '----WebKitFormBoundary' + Math.random().toString(36).substr(2, 15);
+
+
+  // private headers = new HttpHeaders({
+  //   'Content-Type':'multipart/form-data'
+  // })
+  constructor(private http: HttpClient , private router:Router ) { }
+  // ; boundary = ${ this.boundary }
+  // boundary = '----WebKitFormBoundary' + Math.random().toString(36).substr(2, 15);
+  // ; boundary = ${ this.boundary }
   headers = new HttpHeaders({
-    'Content-Type': `multipart/form-data; boundary=${this.boundary}`,
+    // 'Content-Type': `multipart/form-data`,
+    // 'accept':'*/*'
 
   });
-  constructor(private http: HttpClient,private router: Router
-    ) {}
-
-  login(credentials:any) {
+  login(credentials: any) {
     return this.http.post(`${this.baseUrl}/login`, credentials);
   }
-  register(credentials:any) {
-    return this.http.post(`${this.baseUrl}/register`, credentials,{
-      headers:this.headers
-    });
+  register(credentials: any) {
+    console.log('credentials:', credentials)
+    return this.http.post(`${this.baseUrl}/register`,credentials,{headers:this.headers});
   }
   logout() {
     this.loggedUser = undefined;
