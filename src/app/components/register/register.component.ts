@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { imageValidator } from './imageValidation';
+
 
 @Component({
   selector: 'app-register',
@@ -22,10 +22,9 @@ export class RegisterComponent {
       Validators.required,
       Validators.pattern('^(011|012|010)([0-9]+){8}$'),
     ]),
-    address: new FormControl('', [Validators.required]),
     image: new FormControl(null, [
       Validators.required,
-      imageValidator(2000000,['jpg','jpeg','png'])
+      // imageValidator(1000000,['jpg','jpeg','png'])
     ]),
     password: new FormControl('', [
       Validators.required,
@@ -73,8 +72,21 @@ export class RegisterComponent {
     return this.form.controls['password2'];
   }
 
+  readUrl(event:any){
+    const file = event.target.files[0]
+    const type = file.type
+    const validExt = ['image/jpeg','image/jpg','image/png']
+    const size = file.size
+    if (!validExt.includes(type)){
+    return  this.getImage.setErrors({ ...(this.getImage.errors || {}), 'invalidExtension': 'invalid extension' })
+    }
+    if (size>2000000){
+    return  this.getImage.setErrors({ ...(this.getImage.errors || {}), 'maxSize': 'max size exceeds 2 mb' })
+    }
+    return this.getImage.setErrors(null)
+  }
+
   submit(e: Event) {
-    console.log(this.form);
     e.preventDefault();
     if (this.form.status == 'VALID') {
       this.data.append('username', this.getUserName.value);
@@ -85,7 +97,7 @@ export class RegisterComponent {
       this.data.append('password2', this.getPassword2.value);
       this.data.append('phone', this.getMobile.value);
       this.data.append('picture', this.getImage.value);
-      console.log(this.data);
+
 
       this.auth.register(this.data).subscribe({
         next: (res: any) => {
@@ -93,7 +105,7 @@ export class RegisterComponent {
         },
         error: (err) => {
           console.log(err);
-          this.errors = err.error.errors;
+          this.errors = err.error;
         },
       });
     } else {

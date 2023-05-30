@@ -87,7 +87,7 @@
           </div>
 
           <div *ngIf="this.errors?.mobile" class="invalid-feedback d-block">
-            {{ this.errors?.mobile[0] }}
+            {{ this.errors?.phone[0] }}
           </div>
         </ng-container>
       </div>
@@ -176,9 +176,7 @@
             passwords must match
           </div>
 
-          <div *ngIf="this.errors?.password" class="invalid-feedback d-block">
-            {{ this.errors?.password2[0] }}
-          </div>
+
         </ng-container>
       </div>
 
@@ -188,7 +186,7 @@
           class="form-control"
           type="file"
           id="formFile"
-          formControlName="image"
+          (change)="readUrl($event)"
         />
         <ng-container>
           <div
@@ -213,8 +211,8 @@
             image type is not valid
           </div>
 
-          <div *ngIf="this.errors?.image" class="invalid-feedback d-block">
-            {{ this.errors?.image[0] }}
+          <div *ngIf="this.errors?.picture" class="invalid-feedback d-block">
+            {{ this.errors?.picture[0] }}
           </div>
         </ng-container>
       </div>
