@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { ConfirmPasswordValidator } from './confirm-password.validator';
-
 
 @Component({
   selector: 'app-register',
@@ -28,7 +26,7 @@ export class RegisterComponent {
       Validators.pattern('^(011|012|010)([0-9]+){8}$'),
     ]),
     address: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required,this.validateImageType,this.validateImageSize]),
     password: new FormControl('', [
       Validators.required,
       // Validators.pattern(
@@ -39,6 +37,12 @@ export class RegisterComponent {
       Validators.required,
     ]),
   });
+  validateImageType(){
+
+  }
+  validateImageSize(){
+
+  }
   constructor(private auth: AuthService, private router: Router) {}
 
   get getEmail() {

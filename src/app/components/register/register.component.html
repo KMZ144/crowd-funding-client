@@ -203,7 +203,7 @@
           *ngIf="this.errors?.password"
           class="invalid-feedback d-block"
         >
-        {{this.errors?.password[0]}}
+        {{this.errors?.password2[0]}}
         </div>
         </ng-container>
 
@@ -219,12 +219,12 @@
           (change)="readUrl($event)"
         />
         <ng-container>
-          <!-- <div
+          <div
           *ngIf="this.getImage.hasError('required')&&this.getImage.touched"
           class="invalid-feedback d-block"
         >
           image is required
-        </div> -->
+        </div>
           <div
             *ngIf="!this.imageValidation.size"
             class="invalid-feedback d-block"
