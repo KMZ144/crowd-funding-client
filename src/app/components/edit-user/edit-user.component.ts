@@ -3,25 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import * as moment from 'moment';
 import { EditUserService } from 'src/app/services/edit-user.service';
 
 
-function validateBirthDate(control: FormControl): { [key: string]: boolean } | null {
-  // Get the entered birth date
-  const birthDate = new Date(control.value);
-  // Get the current date
-  const currentDate = new Date();
-
-  // Compare the birth date with the current date
-  if (birthDate > currentDate) {
-    // Birth date is in the future, return validation error
-    return { futureDate: true };
-  }
-
-  // Birth date is valid, return null (no validation error)
-  return null;
-}
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -44,14 +28,12 @@ export class EditUserComponent implements OnInit {
       Validators.required,
       // imageValidator(1000000,['jpg','jpeg','png'])
     ]),
-      birth_date: new FormControl(moment().format('YYYY/MM/DD')),
+      birth_date: new FormControl('',[]),
       facebook_profile: new FormControl('', []),
       counrty: new FormControl('', []),
     });
-    birthDate: string; 
     
     constructor(private auth: AuthService,private editUser: EditUserService, private router: Router) {
-      this.birthDate = moment().format('YYYY/MM/DD'); // Set the initial value for birthDate
 
     }
 
@@ -166,6 +148,7 @@ export class EditUserComponent implements OnInit {
         next: (res: any) => {
           console.log(this.data)
           console.log(res);
+          this.router.navigate(['/user/details']);
         },
         error: (err) => {
           console.log(this.data)
