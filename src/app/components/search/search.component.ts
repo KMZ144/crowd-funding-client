@@ -60,7 +60,6 @@ export class SearchComponent {
   // }
 
   transformDuration(end: any, start: any) {
-
     const duration = Math.floor((new Date(end).getTime() - new Date(start).getTime()));
     const seconds = Math.floor(duration / 1000);
     const minutes = Math.floor(seconds / 60);
@@ -78,6 +77,15 @@ export class SearchComponent {
     }
   }
 
+  transformWords(value:string,slice:number){
+    if (!value) {
+      return '';
+    }
+
+    const words = value.split(' ');
+    const limitedWords = words.slice(0, slice);
+    return limitedWords.join(' ');
+  }
   percentComplete(project:any){
     return parseFloat(((project.current_donations / project.target_donations) * 100).toFixed(3))
   }
