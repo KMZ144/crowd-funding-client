@@ -15,7 +15,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
-import { ProjectSliderComponent } from './components/project-slider/project-slider.component';
 
 
 const routes: Routes = [
@@ -48,7 +47,6 @@ HomeComponent,
     SearchComponent,
     FooterComponent,
     EditProjectComponent,
-    ProjectSliderComponent,
   ],
   imports: [
     CommonModule,

@@ -1,35 +1,58 @@
 <div>
-  <app-navbar/>
-  <div class="container">
+  <app-navbar />
+  <div class="container mt-2">
     <div class="d-flex">
-      <div class="col-8 slider">
-
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
-
-          </div>
+      <div class="col-8 ">
+        <h2>{{this.project.title}}</h2>
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="true"
+        >
           <div class="carousel-inner">
-            <app-project-slider/>
+            <div
+              class="carousel-item"
+              *ngFor="let image of this.project.images; let i = index"
+              [ngClass]="{'active': i === 0}"
+            >
+              <img src="{{image.url}}" class="d-block w-100 slider" alt="..." />
+            </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-      </div>
-      <div class="col-4 mr-2 donation">
-<H1>fgdfg</H1>
-      </div>
+        <div class="col-4 donation">
 
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
