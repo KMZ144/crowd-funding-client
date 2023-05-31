@@ -5,6 +5,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -24,11 +25,13 @@ const routes: Routes = [
     DonationsComponent,
     UserDetailsComponent,
     UserProjectsComponent,
-    EditUserComponent
+    EditUserComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class UserModule { }
