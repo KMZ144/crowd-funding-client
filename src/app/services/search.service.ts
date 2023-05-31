@@ -5,12 +5,12 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService {
+export class SearchService {
 
   private baseUrl:string=`${environment.API_URL}/api`
   constructor(private http:HttpClient) {}
-  search(value:string){
-    return this.http.get(`${this.baseUrl}/search?${value}`)
+  search(value:any){
+    return this.http.get(`${this.baseUrl}/search?value=${value}`)
   }
   
 }

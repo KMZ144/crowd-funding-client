@@ -21,19 +21,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: 'projects',
-     canActivate:[],
+    canActivate: [],
     children: [
       { path: '', component: HomeComponent },
-      {path :'search',component:SearchComponent},
-      { path: ':id', component:ProjectComponent },
-      { path: ':id/edit', component:EditProjectComponent },
+      { path: 'search', component: SearchComponent },
+      { path: ':id', component: ProjectComponent },
+      { path: ':id/edit', component: EditProjectComponent },
     ],
   },
 ];
 
 @NgModule({
   declarations: [
-HomeComponent,
+    HomeComponent,
     ProjectComponent,
     LandingComponent,
     FeaturedProjectsComponent,
@@ -50,6 +50,8 @@ HomeComponent,
     EditProjectComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
