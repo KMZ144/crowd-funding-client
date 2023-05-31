@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
 
     this.loggedUser=this.authService.loggedUser
+    console.log(this.loggedUser);
   }
  get getImageUrl(){
     return this.loggedUser.image
