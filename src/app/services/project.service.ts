@@ -34,4 +34,7 @@ export class ProjectService {
   deleteProject(id:any){
     return this.http.delete(`${this.baseUrl}/${id}`)
   }
+  donate(donation:any){
+    return this.http.post(`${this.baseUrl}/donations`,donation)
+  }
 }
