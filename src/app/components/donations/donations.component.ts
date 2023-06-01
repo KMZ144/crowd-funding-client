@@ -8,17 +8,15 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./donations.component.css']
 })
 export class DonationsComponent implements OnInit {
-  userId:any;
-  data:any;
-  constructor(
-    private ActivatedRoute:ActivatedRoute,
-    private userService:UserService,
-  ){
-    this.userId=Number(this.ActivatedRoute.snapshot.paramMap.get('id'));
+  id:number=0;
+  data:any|null=null;
+  constructor(private active:ActivatedRoute, private service:UserService){
+    this.id=Number(this.active.snapshot.paramMap.get('id'));
   }
   ngOnInit(): void {
-    this.userService.getUserDonations(this.userId).subscribe({
-      next:(response:any)=>{console.log(response);this.data=response},
+    this.service.getUserDonations(this.id).subscribe({
+      next:(response: any)=>{console.log(response);this.data=response
+      },
     });
   }
 }
