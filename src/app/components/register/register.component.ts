@@ -108,6 +108,7 @@ export class RegisterComponent {
         next: (res: any) => {
           console.log(this.data)
           console.log(res);
+
         },
         error: (err) => {
           console.log(this.data)
