@@ -13,8 +13,8 @@ export class NavbarComponent implements OnInit {
 
   }
   ngOnInit(): void {
-
-    this.loggedUser=localStorage.getItem('user')
+    const user:any=localStorage.getItem('user')
+    this.loggedUser= JSON.parse(user)
   }
  get getImageUrl(){
     return this.loggedUser.image
