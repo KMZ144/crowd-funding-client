@@ -24,7 +24,11 @@ export class DonationsComponent implements OnInit {
   ngOnInit(): void {
     this.user=localStorage.getItem("user")
     this.userService.getUserDonations(this.user.id).subscribe({
-      next:(response)=>{console.log(response);this.data=response},
+      // next:(response)=>{console.log(response);this.data=response},
+      next:(res: any)=>{this.data=res
+      this.userService.setData(res);
+      }
+
     });
   }
   submit(e:any){

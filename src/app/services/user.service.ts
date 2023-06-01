@@ -18,10 +18,6 @@ export class UserService {
     return this.users;
   }
 
-  // getUserDetails(userid:number){
-  //   return this.http.get(`${this.baseUrl}/profile/${userid}`);
-  // }
-
   getUserDonations(userid:number):any{
     return this.http.get(`${this.baseUrl}/profile/${userid}/donations`)
   }
