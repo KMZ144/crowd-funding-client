@@ -25,13 +25,15 @@ const routes: Routes = [
     DonationsComponent,
     UserDetailsComponent,
     UserProjectsComponent,
-    EditUserComponent
+    EditUserComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class UserModule { }
