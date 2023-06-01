@@ -27,4 +27,9 @@ export class AuthService {
   get getToken() {
     return localStorage.getItem('token');
   }
+  confirm(email: any,code: any) {
+    console.log('email:', email, 'code: ',code)
+    // http://localhost:8000/auth/verifiy-email/mohammed1997amr@gmail.com/5o8IzVdIq9gfLwkN
+    return this.http.post(`${this.baseUrl}/verifiy-email/${email}/${code}`,{});
+  }
 }

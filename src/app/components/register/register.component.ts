@@ -90,6 +90,8 @@ export class RegisterComponent {
   }
 
   submit(e: Event) {
+    let code: number = 0;
+    let email: string = this.getEmail.value;
     e.preventDefault();
     if (this.form.status == 'VALID') {
       console.log(this.getImage.value)
@@ -108,6 +110,7 @@ export class RegisterComponent {
         next: (res: any) => {
           console.log(this.data)
           console.log(res);
+          this.router.navigate([`/verifiy-email/${email}/${code}`]);
         },
         error: (err) => {
           console.log(this.data)
