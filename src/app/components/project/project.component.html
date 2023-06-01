@@ -44,16 +44,7 @@
       </div>
 
         <div class="comments">
-          <div class="card">
-            <div class="card-header">
-              Featured
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+        <app-comments [comments]="this.project.comments"/>
         </div>
 
       </div>
@@ -69,7 +60,7 @@
             <!-- <div class="progress">
               <div class="progress-bar bg-success" role="progressbar" aria-label="Basic example" style="width: 80%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div> -->
-            <div class="mb-3">
+            <div class="mb-3" *ngIf="this.project.current_donations<this.project.target_donations">
               <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data" >
                 <label for="amount" class="form-label">Amount</label>
                 <input min="5" formControlName="amount" type="number" class="form-control mb-2" id="amount">
