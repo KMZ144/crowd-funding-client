@@ -18,62 +18,21 @@
 
     <div>
 
-<!-- search result -->
+        <!-- search result -->
 
         <div *ngIf="projects?.search.length>0" class="container">
             <div class="m-5">
                 <p class="text-success fs-5 fw-bold">{{projects.search.length}} search results</p>
 
-                <!-- product card -->
-                <div *ngFor="let project of projects?.search" routerLink="/projects/{{project.id}}">
-
-                    <div class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="{{back_end_url+''+project?.images[0]?.url}}" class="img-fluid rounded-start"
-                                    alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body ms-4">
-                                    <h5 class="card-title ">{{project.title}}</h5>
-                                    <p class="card-text p-3">{{transformWords(project.details,25)+' ...'}}</p>
-                                    <figcaption class="blockquote-footer">
-                                        Project Owner <cite title="Source Title">{{project.user.username | titlecase}}</cite>
-                                    </figcaption>
-                                    <div class="d-flex flex-column">
-                                        <div class="d-flex justify-content-between">
-                                            <p>Donations:{{project.current_donations|currency}}-{{project.target_donations|currency}}
-                                            </p>
-                                        </div>
-                                        <div class="d-flex w-100 my-2 ms-1 me-5">
-                                            <div class="progress w-75">
-                                                <div [ngClass]="{
-                                                            'progress-bar' : true,
-                                                            'bg-warning': percentComplete(project) <50,
-                                                            'bg-primary': percentComplete(project)>50,
-                                                            'bg-success': percentComplete(project)==100,
-                                                        }" role="progressbar"
-                                                    [style.width.%]="percentComplete(project)"
-                                                    [attr.aria-valuenow]="percentComplete(project)" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                            <div class="w-25 d-flex justify-content-end">
-                                                <div class="mx-5">
-                                                    {{transformDuration(project.end_date,project.start_date) }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div *ngFor="let project of projects?.search">
+                    <!-- product card -->
+                    <app-search-result [project]="project" />
                 </div>
             </div>
         </div>
 
 
-<!-- not found -->
+        <!-- not found -->
         <div class="container text-center">
             <div *ngIf="projects?.search.length<1 && flag" class="d-flex flex-wrap justify-content-center">
                 <p class="fs-5">Not Found</p>

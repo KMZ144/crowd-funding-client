@@ -16,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
     SearchComponent,
     FooterComponent,
     EditProjectComponent,
+    SearchResultComponent,
   ],
   imports: [
     FormsModule,
