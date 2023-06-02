@@ -12,10 +12,10 @@ const routes: Routes = [
     path: 'user',
      canActivate:[],
     children: [
-      { path: 'details', component:  UserDetailsComponent},
-      {path :'donations',component:DonationsComponent},
-      { path: 'projects', component:UserProjectsComponent },
-      { path: 'edit', component:EditUserComponent },
+      { path: 'details',component:UserDetailsComponent},
+      { path: 'donations',component:DonationsComponent},
+      { path: 'projects',component:UserProjectsComponent },
+      { path: 'edit',component:EditUserComponent },
     ],
   },
 ];
