@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,32 +9,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DonationsComponent implements OnInit {
   userId:any;
-  user:any;
   data:any;
   constructor(
     private ActivatedRoute:ActivatedRoute,
     private userService:UserService,
-    private router:Router,
   ){
-    this.ActivatedRoute.paramMap.subscribe(params =>{
-      this.userId = Number(params.get('id'));
-    })
-
+    this.userId=Number(this.ActivatedRoute.snapshot.paramMap.get('id'));
   }
   ngOnInit(): void {
-    this.user=localStorage.getItem("user")
-    this.userService.getUserDonations(this.user.id).subscribe({
-      // next:(response)=>{console.log(response);this.data=response},
-      next:(res: any)=>{this.data=res
-      this.userService.setData(res);
-      }
-
+    this.userService.getUserDonations(this.userId).subscribe({
+      next:(response:any)=>{console.log(response);this.data=response},
     });
   }
-  submit(e:any){
-    e.preventDefault();
-    this.router.navigate(['/donations'])
-  }
-
-
 }
+

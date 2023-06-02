@@ -1,1 +1,11 @@
-<p>user-projects works!</p>
+<div class="container d-flex" *ngFor=" let project of projects.results">
+  <div class="card" routerLink="/projects/{{projects.id}}" >
+    <img src="{{project.images[0].url}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{projects.title}}</h5>
+      <p class="card-text">{{projects.details}}</p>
+       <!-- <a class="btn btn-dark mx-1"  >show Details</a> -->
+    </div>
+    </div>
+
+</div>
