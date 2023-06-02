@@ -17,6 +17,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { CommentsComponent } from './components/comments/comments.component';
+
 
 
 const routes: Routes = [
@@ -50,6 +52,7 @@ const routes: Routes = [
     FooterComponent,
     EditProjectComponent,
     SearchResultComponent,
+    CommentsComponent,
   ],
   imports: [
     FormsModule,
