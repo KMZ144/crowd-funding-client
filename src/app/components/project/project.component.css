@@ -3,8 +3,8 @@
   object-fit: cover;
 }
 
-.project-card {
-  height: 100vh;
+.donations-table{
+  height: 25vh;
   overflow-y: scroll;
-  position: sticky;
+  /* position: sticky; */
 }
