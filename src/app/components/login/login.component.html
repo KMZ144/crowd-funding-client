@@ -1,11 +1,11 @@
 
-<div class="login-form container mt-5">
+<div class="login-form container form-container">
   <form [formGroup]="form" (submit)="submit($event)">
     <div class="mb-3">
       <label for="UserName" class="form-label">User Name</label>
       <input
         type="UserName"
-        class="form-control"
+        class="form-control small-input"
         id="UserName"
         formControlName="UserName"
       />
@@ -28,7 +28,7 @@
       <label for="password" class="form-label">Password</label>
       <input
         type="password"
-        class="form-control"
+        class="form-control small-input"
         id="password"
         formControlName="password"
       />
@@ -58,7 +58,7 @@
       </ng-container>
     </div>
     <div class="text-center">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Login</button>
     </div>
   </form>
 </div>

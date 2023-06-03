@@ -8,7 +8,7 @@ import { CustomRouteReuseStrategy } from './components/project/custom-route-reus
 const routes: Routes = [
   { path: 'home', component:HomeComponent  },
   {path : 'register', component:RegisterComponent},
-  {path : 'verify-email/{email}/{code}', component:EmailConfirmationComponent},
+  {path : 'verifiy-email/:email/:code', component:EmailConfirmationComponent},
   {path:'login',component:LoginComponent}
 ];
 
