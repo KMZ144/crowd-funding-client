@@ -33,9 +33,7 @@ export class EditUserComponent implements OnInit {
       counrty: new FormControl('', []),
     });
     
-    constructor(private auth: AuthService,private editUser: EditUserService, private router: Router) {
-
-    }
+    constructor(private auth: AuthService,private editUser: EditUserService, private router: Router) {}
 
     ngOnInit() {
       this.editUser.fetchData().subscribe({
