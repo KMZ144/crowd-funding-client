@@ -6,16 +6,16 @@ import { UserProjectsComponent } from './components/user-projects/user-projects.
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ProjectModule } from './project.module';
 const routes: Routes = [
   {
     path: 'user',
      canActivate:[],
     children: [
-      { path: 'details', component:  UserDetailsComponent},
-      {path :'donations',component:DonationsComponent},
-      { path: 'projects', component:UserProjectsComponent },
-      { path: 'edit', component:EditUserComponent },
+      { path: 'details',component:UserDetailsComponent},
+      { path: 'donations',component:DonationsComponent},
+      { path: 'projects',component:UserProjectsComponent },
+      { path: 'edit',component:EditUserComponent },
     ],
   },
 ];
@@ -34,6 +34,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
+    ProjectModule
+
   ]
 })
 export class UserModule { }

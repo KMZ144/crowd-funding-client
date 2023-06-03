@@ -39,4 +39,7 @@ export class ProjectService {
   donate(donation:any){
     return this.http.post(`${this.baseUrl}/donations`,donation)
   }
+  // rate(id:any){
+  //   return this.http
+  // }
 }

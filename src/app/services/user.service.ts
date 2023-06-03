@@ -21,4 +21,7 @@ export class UserService {
   getUserDonations(userid:number):any{
     return this.http.get(`${this.baseUrl}/profile/${userid}/donations`)
   }
+  getUserProjects(userid:number):any{
+    return this.http.get(`${this.baseUrl}/profile/${userid}/projects`)
+  }
 }
