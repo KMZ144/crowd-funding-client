@@ -1,11 +1,25 @@
-<div class="container d-flex" *ngFor=" let project of projects.results">
-  <div class="card" routerLink="/projects/{{projects.id}}" >
-    <img src="{{project.images[0].url}}" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{projects.title}}</h5>
-      <p class="card-text">{{projects.details}}</p>
-       <!-- <a class="btn btn-dark mx-1"  >show Details</a> -->
-    </div>
-    </div>
+<div>
+  <app-navbar />
+</div>
+<div class="container mt-5 col-md-6">
+  <h1 *ngIf="projects.results >= 1">My Projects</h1>
+  <div class="mt-5" *ngFor="let project of projects.results">
+    <app-search-result [project]="project"></app-search-result>
+  </div>
 
+  <div
+    style="text-align: center; margin-top: 10%"
+    *ngIf="projects.results <= 0"
+  >
+    <p style="font-size: 24px">You Do Not Have Projects Yet !</p>
+    <button
+      class="btn btn-outline-success fs-4 project"
+      routerLink="/projects/0/edit"
+    >
+      Start A project
+    </button>
+  </div>
+</div>
+<div>
+  <app-footer />
 </div>

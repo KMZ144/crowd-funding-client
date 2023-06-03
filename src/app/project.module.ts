@@ -61,6 +61,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(routes),
+  ],
+  exports:[
+    SearchResultComponent,
+    NavbarComponent,
+    FooterComponent
   ]
 })
+
 export class ProjectModule { }
