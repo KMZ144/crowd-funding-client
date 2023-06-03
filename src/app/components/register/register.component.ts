@@ -104,16 +104,12 @@ export class RegisterComponent {
       this.data.append('password2', this.getPassword2.value);
       this.data.append('phone', this.getMobile.value);
       this.data.append('picture', this.myfile);
-
-      console.log(this.data)
       this.auth.register(this.data).subscribe({
         next: (res: any) => {
-          console.log(this.data)
           console.log(res);
           this.router.navigate([`/verifiy-email/${email}/${code}`]);
         },
         error: (err) => {
-          console.log(this.data)
           console.log(err);
           this.errors = err.error;
         },

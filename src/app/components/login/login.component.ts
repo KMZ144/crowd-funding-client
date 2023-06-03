@@ -45,7 +45,7 @@ export class LoginComponent {
         .subscribe({
           next: (res: any) => {
             this.auth.loggedUser = res.user;
-            localStorage.setItem('user',this.auth.loggedUser)
+            localStorage.setItem('user',JSON.stringify( this.auth.loggedUser))
             this.router.navigate(['/projects']);
             localStorage.setItem('token', res.token);
           },

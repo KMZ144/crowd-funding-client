@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -21,12 +21,14 @@ export class ProjectService {
   getData(): any {
     return this.projects;
   }
+  headers = new HttpHeaders().set('Content-Type', 'multipart/form-data');
 
   getProjectById(ProjectId:Number){
     return this.http.get(`${this.baseUrl}/projects/${ProjectId}`)
   }
   addProject(Project:any){
-    return this.http.post(this.baseUrl,Project)
+    console.log(Project)
+    return this.http.post(`${this.baseUrl}/projects`,Project)
   }
   editProject(id:any,Project:any){
     return this.http.put(`${this.baseUrl}/${id}`,Project)

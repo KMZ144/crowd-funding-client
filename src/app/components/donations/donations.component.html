@@ -1,7 +1,7 @@
 
 
 <div class="container mt-5 col-md-6 ">
-  <div *ngFor="let donation of this.data">
+  <div *ngFor="let donation of this.data?.results">
     <div class="card" style="width: 18rem; margin: auto; border-color: green;">
       <div class="card-body">
         <h5 class="card-header">Project name : {{donation?.project}}</h5>

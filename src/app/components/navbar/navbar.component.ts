@@ -9,15 +9,16 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent implements OnInit {
   loggedUser:any
+  back_end_url: any = environment.API_URL
   constructor(private authService:AuthService){
 
   }
   ngOnInit(): void {
-
-    this.loggedUser=localStorage.getItem('user')
+    const user:any=localStorage.getItem('user')
+    this.loggedUser= JSON.parse(user)
   }
  get getImageUrl(){
-    return this.loggedUser.image
+   return this.loggedUser.picture
   }
    logout(){
     this.authService.logout()
