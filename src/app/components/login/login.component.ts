@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
@@ -45,8 +44,8 @@ export class LoginComponent {
         })
         .subscribe({
           next: (res: any) => {
-            console.log(res);
             this.auth.loggedUser = res.user;
+            localStorage.setItem('user',JSON.stringify( this.auth.loggedUser))
             this.router.navigate(['/projects']);
             localStorage.setItem('token', res.token);
           },

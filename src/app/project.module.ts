@@ -15,25 +15,28 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EditProjectComponent } from './components/edit-project/edit-project.component';
-import { ProjectSliderComponent } from './components/project-slider/project-slider.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchResultComponent } from './components/search-result/search-result.component';
+import { CommentsComponent } from './components/comments/comments.component';
+
 
 
 const routes: Routes = [
   {
     path: 'projects',
-     canActivate:[],
+    canActivate: [],
     children: [
       { path: '', component: HomeComponent },
-      {path :'search',component:SearchComponent},
-      { path: ':id', component:ProjectComponent },
-      { path: ':id/edit', component:EditProjectComponent },
+      { path: 'search', component: SearchComponent },
+      { path: ':id', component: ProjectComponent },
+      { path: ':id/edit', component: EditProjectComponent },
     ],
   },
 ];
 
 @NgModule({
   declarations: [
-HomeComponent,
+    HomeComponent,
     ProjectComponent,
     LandingComponent,
     FeaturedProjectsComponent,
@@ -48,10 +51,15 @@ HomeComponent,
     SearchComponent,
     FooterComponent,
     EditProjectComponent,
-    ProjectSliderComponent,
+    SearchResultComponent,
+    CommentsComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(routes),
   ]
 })
