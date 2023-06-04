@@ -52,8 +52,8 @@
         >
           Password must contain uppercase lowercase and special character
         </div>
-        <div *ngIf="this.errors?.message" class="invalid-feedback d-block">
-          {{this.errors}}
+        <div *ngIf="this.errors" class="invalid-feedback d-block">
+          {{this.errors[0]}}
         </div>
       </ng-container>
     </div>
