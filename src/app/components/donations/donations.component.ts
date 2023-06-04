@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-donations',
@@ -13,6 +14,7 @@ export class DonationsComponent implements OnInit {
   userId:number=0;
   user:any={};
   data:any;
+  back_end_url: any = environment.API_URL
   constructor(
     private ActivatedRoute:ActivatedRoute,
     private userService:UserService,
@@ -27,6 +29,8 @@ export class DonationsComponent implements OnInit {
       this.data=res
       console.log(res)
       this.userService.setData(res);
+      this.data.picture=environment.API_URL.concat(this.data.picture)
+
       }
     }
   );
