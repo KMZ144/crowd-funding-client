@@ -12,5 +12,8 @@ export class CommentService {
     addComment(value: any) {
         return this.http.post(`${this.baseUrl}/comments`,value)
     }
+    reportComment(value: any) {
+        return this.http.post(`${this.baseUrl}/reports`, value)
+    }
 
 }
