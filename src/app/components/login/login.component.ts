@@ -50,7 +50,7 @@ export class LoginComponent {
             localStorage.setItem('token', res.token);
           },
           error: (err) => {
-            this.errors = err.error;
+            this.errors = err.error.errors;
             console.log(this.errors);
           },
         });
