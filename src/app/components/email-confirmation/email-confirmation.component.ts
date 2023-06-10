@@ -24,9 +24,9 @@ export class EmailConfirmationComponent {
         // console.log(this.data)
         console.log("Response : ",res);
         this.auth.loggedUser = res.user;
-        localStorage.setItem('user',this.auth.loggedUser)
-        this.router.navigate(['/home']);
+        localStorage.setItem('user', JSON.stringify(res.user))
         localStorage.setItem('token', res.token);
+        this.router.navigate(['/']);
         
       },
       error: (err) => {
