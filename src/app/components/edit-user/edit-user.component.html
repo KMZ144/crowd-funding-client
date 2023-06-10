@@ -1,4 +1,4 @@
-<div class="login-form container mt-3 form-container">
+<div class="login-form container mt-5 pt-5 form-container">
   <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data">
     <div class="mb-3">
 
@@ -102,6 +102,7 @@
         <select name="counrty" class="form-control  small-input" id="counrty">
           <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
           <optgroup id="country-optgroup-Africa" label="Africa">
+
             <option value="DZ" label="Algeria">Algeria</option>
             <option value="AO" label="Angola">Angola</option>
             <option value="BJ" label="Benin">Benin</option>
@@ -379,6 +380,7 @@
             image size mustn't exceed 2mb
           </div>
           <div *ngIf="
+
             this.getImage.hasError('invalidExtension') &&
             this.getImage.touched
           " class="invalid-feedback d-block">
@@ -394,7 +396,7 @@
     </div>
 
     <div class="text-center">
-      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="submit" class="btn btn-primary mb-3">Edit</button>
     </div>
   </form>
 </div>

@@ -32,7 +32,7 @@ export class EditUserComponent implements OnInit {
       facebook_profile: new FormControl('', []),
       counrty: new FormControl('', []),
     });
-    
+
     constructor(private auth: AuthService,private editUser: EditUserService, private router: Router) {}
 
     ngOnInit() {
@@ -61,11 +61,10 @@ export class EditUserComponent implements OnInit {
         },
       });
       this.form.get('facebook_profile')?.setValidators([
-        Validators.required,
         Validators.pattern(/^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9(\.\?)?]/)
       ]);
     }
-    
+
 
   get getEmail() {
     return this.form.controls['email'];
@@ -112,7 +111,6 @@ export class EditUserComponent implements OnInit {
   }
 
   readUrl(event:any){
-    console.log(event.target.files[0])
     this.myfile =event.target.files[0]
     const file = event.target.files[0]
     const type = file.type
@@ -128,13 +126,18 @@ export class EditUserComponent implements OnInit {
   }
 
   submit(e: Event) {
+    console.log(this.form);
     e.preventDefault();
     if (this.form.status == 'VALID') {
-      console.log(this.getImage.value)
-      console.log(this.getUserName.value)
+      if (this.getBirth_date.value){
       this.data.append('birth_date', this.getBirth_date.value);
+      }
+      if(this.getFacebook_profile.value){
       this.data.append('facebook_profile', this.getFacebook_profile.value);
+      }
+      if(this.getCounrty.value){
       this.data.append('counrty', this.getCounrty.value);
+      }
       this.data.append('phone', this.getMobile.value);
       this.data.append('picture', this.myfile);
       this.data.append('first_name', this.getFirstName.value);
