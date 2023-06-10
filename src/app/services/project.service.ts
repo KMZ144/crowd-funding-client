@@ -42,4 +42,7 @@ export class ProjectService {
   // rate(id:any){
   //   return this.http
   // }
+  reportProject(value: any) {
+    return this.http.post(`${this.baseUrl}/reports`, value)
+  }
 }

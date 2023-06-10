@@ -85,7 +85,7 @@ export class CommentsComponent {
           });
     } else {
       // this.placeholder = 'please provide a comment message first!'
-      this.myform.markAllAsTouched();
+      this.reportForm.markAllAsTouched();
     }
   }
 
