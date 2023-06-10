@@ -24,6 +24,7 @@ export class ProjectComponent implements OnInit {
   urls: String[] = []
   loggedUser: any
   validDonation: boolean = false
+  userRate: any;
   form: FormGroup = new FormGroup({
     amount: new FormControl(5, [Validators.required, Validators.pattern('[0-9]+')])
   })
@@ -31,12 +32,16 @@ export class ProjectComponent implements OnInit {
     this.projectService.getProjectById(this.id).subscribe(
       {
         next: (res) => {
+          this.loggedUser = localStorage.getItem('user')
+          this.loggedUser = JSON.parse(this.loggedUser)
           this.data = res
           this.project = this.data.project
+          this.userRate = this.data?.project?.ratings.filter((element: any) => {
+            return element.user === this.loggedUser.id
+          })[0];
           this.similarProjects = this.data.similar_projects
           this.targetDonations = 0.25 * this.project.target_donations
-          console.log(this.project);
-          this.loggedUser = localStorage.getItem('user')
+          console.log(this.userRate);
         },
         error: (err) => {
           console.log(err);
