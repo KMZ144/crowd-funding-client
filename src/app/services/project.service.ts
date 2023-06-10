@@ -42,6 +42,9 @@ export class ProjectService {
   rate (id:number,rate:number){
     return this.http.post(`${this.baseUrl}/rates`,{project:id,rate})
   }
+  rateUpdate(id:number,projectid: number, rate: number) {
+    return this.http.put(`${this.baseUrl}/rates/${id}`, { project: projectid, rate })
+  }
   // rate(id:any){
   //   return this.http
   // }
