@@ -40,7 +40,7 @@ export class CommentsComponent {
           next: (res: any) => {
             this.commentObject.user = this.authService.getLoggedUser.username
             this.commentObject.created_at = new Date()
-            this.comments.push(this.commentObject)
+            this.comments.push(res)
             this.myform.controls['value'].setValue('')
             console.log(res);
           },

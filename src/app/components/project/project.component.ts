@@ -14,11 +14,12 @@ export class ProjectComponent implements OnInit {
 
   back_end_url: any = environment.API_URL
   constructor(private projectService:ProjectService,private activatedRoute: ActivatedRoute){}
-  
+
 
   data:any=null
   project:any=null
   similarProjects:any
+  targetDonations:any
   progress:any
   urls:String[]=[]
   loggedUser:any
@@ -33,10 +34,8 @@ export class ProjectComponent implements OnInit {
           this.data=res
           this.project=this.data.project
           this.similarProjects=this.data.similar_projects
+          this.targetDonations=0.25*this.project.target_donations
           console.log(this.project);
-          // for(let i=0;i<this.project.images.length;i++){
-          //   this.project.images[i].url=environment.API_URL.concat(this.project.images[i].url)
-        // }
         this.loggedUser=localStorage.getItem('user')
         },
         error:(err)=>{
