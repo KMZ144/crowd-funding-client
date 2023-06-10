@@ -129,9 +129,15 @@ export class EditUserComponent implements OnInit {
     console.log(this.form);
     e.preventDefault();
     if (this.form.status == 'VALID') {
+      if (this.getBirth_date.value){
       this.data.append('birth_date', this.getBirth_date.value);
+      }
+      if(this.getFacebook_profile.value){
       this.data.append('facebook_profile', this.getFacebook_profile.value);
+      }
+      if(this.getCounrty.value){
       this.data.append('counrty', this.getCounrty.value);
+      }
       this.data.append('phone', this.getMobile.value);
       this.data.append('picture', this.myfile);
       this.data.append('first_name', this.getFirstName.value);
