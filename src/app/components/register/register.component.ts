@@ -94,8 +94,6 @@ export class RegisterComponent {
     let email: string = this.getEmail.value;
     e.preventDefault();
     if (this.form.status == 'VALID') {
-      console.log(this.getImage.value)
-      console.log(this.getUserName.value)
       this.data.append('username', this.getUserName.value);
       this.data.append('first_name', this.getFirstName.value);
       this.data.append('last_name', this.getLastName.value);

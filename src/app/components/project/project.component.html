@@ -38,7 +38,7 @@
     <div class=" w-25">
 
 
-      <div class=" card ">
+      <div class=" card mt-3 mb-3 ">
         <div class="card-body">
           <div class="mb-3">
             <form [formGroup]="form" (submit)="submit($event)" enctype="multipart/form-data">
@@ -57,7 +57,13 @@
 
               </div>
 
+              <div *ngIf="
+              this.validDonation &&
+              this.getAmount.touched
+            " class="text-success d-block">
+      donation done
 
+    </div>
 
               <button class="btn btn-warning w-100 fs-4 mb-1" type="submit">Donate Now</button>
             </form>
@@ -93,8 +99,10 @@
   </div>
   <!-- 1111111111111111111111111 -->
   <div>
+<div class="mt-3">
+  <app-comments [comments]="project?.comments" [projectId]="this.project?.id"/>
 
-    <app-comments [comments]="project?.comments" [projectId]="this.project?.id"/>
+</div>
     <div class="row ">
       <h3 class="text-center mt-4">Similar Projects</h3>
       <div *ngFor="let item of similarProjects" class="col-6">

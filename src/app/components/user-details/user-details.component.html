@@ -19,6 +19,7 @@
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h4 class="text-right">Profile Settings</h4>
+          <div><Button class="btn btn-success" routerLink="/user/edit">Edit Profile</Button></div>
         </div>
         <div class="row mt-2">
           <div class="col-md-6">
@@ -43,12 +44,7 @@
             <label class="labels">Email </label
             ><label type="text" class="form-control">{{ MyData?.email }}</label>
           </div>
-          <div class="col-md-12">
-            <label class="labels">Date_Login</label
-            ><label type="text" class="form-control">
-              {{ MyData?.date_joined }}
-            </label>
-          </div>
+
         </div>
       </div>
     </div>
