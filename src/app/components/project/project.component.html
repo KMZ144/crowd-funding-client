@@ -54,8 +54,10 @@
     <div class="h-100 w-50" routerLink="/projects/{{ this.project?.id }}">
       <!-- </div> -->
       <div>
-        <h3>Rate this Project</h3>
-        <div></div>
+        <h3 class="mb-0">Rate this Project</h3>
+        <div>
+          <app-rate [id]="this.project?.id"/>
+        </div>
       </div>
       <app-search-result [project]="project" />
     </div>
@@ -107,8 +109,8 @@
           </div>
 
           <button
-            *ngIf="loggedUser?.id==this.project?.user?.id
-            && this.project?.current_donations < this.targetDonations  "
+            *ngIf="loggedUser?.id==this.project?.user?.id && this.project?.current_donations < this?.targetDonations  "
+
             class="btn btn-danger w-100 fs-4 mb-1"
             onclick=""
           >

@@ -39,6 +39,9 @@ export class ProjectService {
   donate(donation:any){
     return this.http.post(`${this.baseUrl}/donations`,donation)
   }
+  rate (id:number,rate:number){
+    return this.http.post(`${this.baseUrl}/rates`,{project:id,rate})
+  }
   // rate(id:any){
   //   return this.http
   // }

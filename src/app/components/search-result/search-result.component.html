@@ -6,7 +6,8 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body ms-4">
-                    <h5 class="card-title ">{{project?.title}}</h5>
+                    <h3 class="card-title ">{{project?.title}}</h3>
+                    <p class="card-title ">Avg Rating :{{project?.average_rating}}</p>
                     <p class="card-text p-3">{{transformWords(project?.details,25)+' ...'}}</p>
                     <figcaption class="blockquote-footer">
                         Project Owner <cite title="Source Title">{{project?.user.username | titlecase}}</cite>
