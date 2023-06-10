@@ -18,13 +18,14 @@ import { EditProjectComponent } from './components/edit-project/edit-project.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
 const routes: Routes = [
   {
     path: 'projects',
-    canActivate: [],
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent },
       { path: 'search', component: SearchComponent },
