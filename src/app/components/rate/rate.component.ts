@@ -11,27 +11,52 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation, Dire
 
 })
 
-export class RateComponent {
+export class RateComponent implements OnInit {
 
-  @Input()id:any
+  @Input() id: any
+  @Input() userRate: any = null
+  
+  @Input() avg_rate: any=null
   max = 5;
   rate = 0;
-  isReadonly = false;
+  @Input() isReadonly:boolean = false;
 
-  constructor(private projectService:ProjectService) {
+  constructor(private projectService: ProjectService) {
+  }
+  ngOnInit(): void {
+    if (this.userRate) {
+      this.rate = this.userRate.rate
+    }
+    if (this.avg_rate){
+      this.rate=this.avg_rate
+    }
   }
 
-  rateProject(){
-    this.projectService.rate(Number(this.id),this.rate).subscribe(
-      {
-        next:(res)=>{
-          console.log(res);
-        },
-        error:(err)=>{
-          console.log(err);
+  rateProject() {
+    if(!this.userRate){
+      this.projectService.rate(Number(this.id), this.rate).subscribe(
+        {
+          next: (res) => {
+            console.log(res);
+          },
+          error: (err) => {
+            console.log(err);
+          }
         }
-      }
-    )
+      )
+    }else{
+      this.projectService.rateUpdate(Number(this.userRate.id),Number(this.id), this.rate).subscribe(
+        {
+          next: (res) => {
+            console.log(res);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        }
+      )
+    }
+    
 
   }
 

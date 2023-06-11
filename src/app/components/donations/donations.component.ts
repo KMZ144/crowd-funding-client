@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-donations',
@@ -21,14 +22,17 @@ export class DonationsComponent implements OnInit {
   ngOnInit(): void {
     this.user = localStorage.getItem("user")
     this.userId = JSON.parse(this.user).id
-    console.log(this.userId)
+    // console.log(this.userId)
     this.userService.getUserDonations(this.userId).subscribe({
       next:(res: any)=>{
       this.data=res
       console.log(res)
       this.userService.setData(res);
+      // this.data.picture=environment.API_URL.concat(this.data.picture)
+
       }
     }
   );
+
 }
 }

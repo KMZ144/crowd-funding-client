@@ -56,7 +56,7 @@
       <div>
         <h3 class="mb-0">Rate this Project</h3>
         <div>
-          <app-rate [id]="this.project?.id"/>
+          <app-rate *ngIf="this.project" [id]="this.project?.id" [userRate]="this.userRate" [isReadonly]="false"/>
         </div>
       </div>
       <app-search-result [project]="project" />
