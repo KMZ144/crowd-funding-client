@@ -2,11 +2,11 @@
   <app-navbar />
 </div>
 
-<div class="container text-center">
-  <p class="title">My Donations</p>
+<div class="container  text-center">
+  <p class="title mt-2">My Donations</p>
   <div class="d-flex flex-wrap justify-content-center">
   <div *ngFor="let donation of this.data.results">
-    <div class="card mt-5 ms-2" >
+    <div class="card mt-4 ms-2" >
       <div class="card-body">
         <h5 class="card-header">{{ donation?.project }}</h5>
         <div>

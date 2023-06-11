@@ -24,4 +24,15 @@ export class UserService {
   getUserProjects(userid:number):any{
     return this.http.get(`${this.baseUrl}/profile/${userid}/projects`)
   }
+  deleteProfile(pass:String){
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        password: pass,
+      },
+    };
+    return this.http.delete(`${this.baseUrl}/profile`,options)
+  }
 }
