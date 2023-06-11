@@ -1,0 +1,19 @@
+.card{
+  width: 16rem; margin: auto; border-color: green ;
+  cursor: pointer;
+  /*
+   */
+   animation-delay:calc(12);
+}
+
+.card-title{
+  font-size: medium
+}
+
+.updated_at{
+  font-size: small
+}
+
+.title{
+  font-size: 30px;
+}
