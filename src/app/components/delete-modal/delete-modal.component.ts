@@ -32,6 +32,8 @@ export class DeleteModalComponent {
       this.userService.deleteProfile(this.getPassword.value).subscribe(
         {
           next:()=>{
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
             this.router.navigate(['/login'])
           },
           error:(err)=>{
